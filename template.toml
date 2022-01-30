@@ -1,0 +1,14 @@
+name = "TypeScript Nest GraphQl"
+description = "Template to create a TypeScript project using NestJS and GraphQL"
+kickstart_version = 1
+directory = "{{project_name}}"
+
+
+ignore = [
+    "README.md",
+]
+
+[[variables]]
+name = "project_name"
+default = "greetings-service"
+prompt = "Directory name?"
