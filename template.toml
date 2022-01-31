@@ -4,11 +4,41 @@ kickstart_version = 1
 directory = "{{project_name}}"
 
 
-ignore = [
-    "README.md",
-]
+# ignore = [
+#     "README.md",
+# ]
 
 [[variables]]
 name = "project_name"
 default = "greetings-service"
 prompt = "Directory name?"
+
+[[variables]]
+name = "framework"
+default = "NestJs"
+prompt = "Which framework do you want to use?"
+choices = ["NestJs", "none"]
+
+[[variables]]
+name = "graphql"
+default = true
+prompt = "Is it a GraphQL Federation service?"
+
+[[variables]]
+name = "database"
+default = "Postgres"
+prompt = "Which database?"
+choices = ["Postgres", "MongoDB", "none"]
+
+[[variables]]
+name = "orm"
+default = "Prisma"
+prompt = "Which ORM do you want to use?"
+choices = ["Prisma", "Typeorm"]
+only_if = { name = "database", value = "Postgres" }
+
+[[variables]]
+name = "prisma"
+default = true
+prompt = "Do you want to use Prisma?"
+only_if = { name = "database", value = "Mongodb" }

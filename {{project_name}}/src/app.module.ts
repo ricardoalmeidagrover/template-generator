@@ -14,6 +14,7 @@ import { logger } from './utils/logger';
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    {%- if graphql -%}
     GraphQLFederationModule.forRootAsync({
       useFactory: () => {
         return {
@@ -37,6 +38,7 @@ import { logger } from './utils/logger';
         };
       },
     }),
+    {%- endif -%}
     GreetingsModule,
   ],
   controllers: [AppController],
